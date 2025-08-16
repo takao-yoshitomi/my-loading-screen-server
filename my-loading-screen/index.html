@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
@@ -47,9 +47,142 @@ body {
 </style>
 </head>
 <body>
-
+-->
 <!-- 雲アイコン -->
+ <!----
 <img src="icon.png" id="floating-icon" alt="Cloud Icon">
+
+</body>
+</html>
+-->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loading Screen</title>
+<style>
+/* 背景グラデーション */
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #a0d8f1, #ffffff); /* 空のグラデーション */
+  overflow: hidden;
+}
+
+/* 雲アイコン */
+#floating-icon {
+  width: 180px; /* サイズを少し大きく */
+  height: auto;
+  animation: diagonal-float 8s ease-in-out infinite,
+             horizontal-drift 12s ease-in-out infinite alternate,
+             rotate 15s ease-in-out infinite alternate,
+             scale 4s ease-in-out infinite alternate;
+  filter: drop-shadow(0 10px 20px rgba(160, 216, 241, 0.3)); /* 柔らかい影 */
+}
+
+/* 斜め方向の大きな動き */
+@keyframes diagonal-float {
+  0% { transform: translate(-40px, -30px); }
+  12.5% { transform: translate(20px, -80px); }
+  25% { transform: translate(70px, -20px); }
+  37.5% { transform: translate(50px, 40px); }
+  50% { transform: translate(0px, 60px); }
+  62.5% { transform: translate(-60px, 30px); }
+  75% { transform: translate(-80px, -10px); }
+  87.5% { transform: translate(-20px, -50px); }
+  100% { transform: translate(-40px, -30px); }
+}
+
+/* 大きな横方向のドリフト */
+@keyframes horizontal-drift {
+  0% { transform: translateX(-100px); }
+  25% { transform: translateX(60px); }
+  50% { transform: translateX(120px); }
+  75% { transform: translateX(-20px); }
+  100% { transform: translateX(-100px); }
+}
+
+/* ゆるやかな回転 */
+@keyframes rotate {
+  0% { transform: rotate(-3deg); }
+  50% { transform: rotate(8deg); }
+  100% { transform: rotate(-3deg); }
+}
+
+/* サイズの変化でよりふわふわ感を演出 */
+@keyframes scale {
+  0% { transform: scale(0.95); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(0.95); }
+}
+
+/* 背景に追加の雲を配置（オプション） */
+.background-cloud {
+  position: absolute;
+  opacity: 0.15;
+  animation: drift 15s linear infinite;
+  z-index: -1;
+}
+
+.cloud1 {
+  top: 20%;
+  left: -10%;
+  width: 80px;
+  animation-delay: 0s;
+}
+
+.cloud2 {
+  top: 60%;
+  right: -10%;
+  width: 120px;
+  animation-delay: -7s;
+}
+
+.cloud3 {
+  top: 40%;
+  left: -15%;
+  width: 60px;
+  animation-delay: -12s;
+}
+
+/* 追加：円形軌道の動き */
+.orbit-cloud {
+  position: absolute;
+  width: 100px;
+  opacity: 0.4;
+  animation: orbit 20s linear infinite;
+  transform-origin: center;
+  left: calc(50% - 50px);
+  top: calc(50% - 50px);
+}
+
+@keyframes orbit {
+  0% { transform: rotate(0deg) translateX(200px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(200px) rotate(-360deg); }
+}
+
+@keyframes drift {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(100vw + 200px)); }
+}
+</style>
+</head>
+<body>
+
+<!-- メインの雲アイコン -->
+<img src="icon.png" id="floating-icon" alt="Cloud Icon">
+
+<!-- 円形軌道の雲 -->
+<div class="orbit-cloud">☁️</div>
+
+<!-- 背景の雲（オプション） -->
+<div class="background-cloud cloud1">☁️</div>
+<div class="background-cloud cloud2">☁️</div>
+<div class="background-cloud cloud3">☁️</div>
 
 </body>
 </html>
