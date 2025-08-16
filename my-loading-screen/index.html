@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>ロード画面</title>
+<style>
+body {
+  /* 水色のグラデーション背景 */
+  background: linear-gradient(to bottom, #a0d8f1, #ffffff);
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+#floating-icon {
+  width: 150px; /* アイコンの幅 */
+  height: auto;
+  animation: float 4s ease-in-out infinite alternate, sway 6s ease-in-out infinite alternate;
+}
+
+/* 上下に浮かぶアニメーション */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-30px); } /* 動き大きめに変更 */
+  100% { transform: translateY(0); }
+}
+
+/* 横にもゆらぐアニメーションで自然さを追加 */
+@keyframes sway {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(10px); }
+  100% { transform: translateX(0); }
+}
+</style>
+</head>
+<body>
+  <!-- 浮かぶ雲のアイコン -->
+  <img id="floating-icon" src="icon.png" alt="雲のアイコン">
+</body>
+</html>
