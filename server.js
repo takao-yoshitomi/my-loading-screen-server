@@ -11,6 +11,7 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'my-loading-screen', 'index.html'));
 });
 
-app.listen(PORT, () => {
+// IPアドレス '0.0.0.0' を指定してリッスン
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server running on port ${PORT}`);
 });
