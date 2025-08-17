@@ -3,8 +3,13 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// ヘルスチェック専用エンドポイントを追加
+app.get('/healthz', (req, res) => {
+  res.status(200).send('OK');
+});
+
 // my-loading-screen フォルダの静的ファイルを返す
-app.use(express.static(path.join(__dirname, 'my-loading-screen')));
+app.use(express.static(path.join(__dirname, 'my-loading-screen')))
 
 // すべてのリクエストで index.html を返す
 app.get('*', (req, res) => {
